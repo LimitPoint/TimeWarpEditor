@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD148F1F2903599B00C40CF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD148F1E2903599B00C40CF9 /* Assets.xcassets */; };
+		CD148F232903599B00C40CF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD148F222903599B00C40CF9 /* Preview Assets.xcassets */; };
+		CD148F2D29035D4000C40CF9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CD148F2A29035D4000C40CF9 /* Credits.rtf */; };
+		CD148F2E29035D4000C40CF9 /* TimeWarpEditorSuccessSoundName.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD148F2B29035D4000C40CF9 /* TimeWarpEditorSuccessSoundName.m4a */; };
+		CD148F2F29035D4000C40CF9 /* TimeWarpEditorWarningSoundName.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD148F2C29035D4000C40CF9 /* TimeWarpEditorWarningSoundName.m4a */; };
+		CD148F3629035DBE00C40CF9 /* Twists.mov in Resources */ = {isa = PBXBuildFile; fileRef = CD148F3129035DBE00C40CF9 /* Twists.mov */; };
+		CD148F3729035DBE00C40CF9 /* Echo.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD148F3229035DBE00C40CF9 /* Echo.m4a */; };
+		CD148F3829035DBE00C40CF9 /* Fireworks.mov in Resources */ = {isa = PBXBuildFile; fileRef = CD148F3329035DBE00C40CF9 /* Fireworks.mov */; };
+		CD148F3929035DBE00C40CF9 /* TimeWarpVideoGenerator.png in Resources */ = {isa = PBXBuildFile; fileRef = CD148F3429035DBE00C40CF9 /* TimeWarpVideoGenerator.png */; };
+		CD148F3A29035DBE00C40CF9 /* DefaultVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = CD148F3529035DBE00C40CF9 /* DefaultVideo.mov */; };
+		CD148F4129035E5B00C40CF9 /* TimeWarpVideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F3B29035E5B00C40CF9 /* TimeWarpVideoGenerator.swift */; };
+		CD148F4229035E5B00C40CF9 /* TimeWarpConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F3C29035E5B00C40CF9 /* TimeWarpConstants.swift */; };
+		CD148F4329035E5B00C40CF9 /* TimeWarpVideoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F3D29035E5B00C40CF9 /* TimeWarpVideoApp.swift */; };
+		CD148F4429035E5B00C40CF9 /* TitleAndDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F3E29035E5B00C40CF9 /* TitleAndDescriptionView.swift */; };
+		CD148F4529035E5B00C40CF9 /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F3F29035E5B00C40CF9 /* VideoWriter.swift */; };
+		CD148F4629035E5B00C40CF9 /* TimeWarpExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4029035E5B00C40CF9 /* TimeWarpExtensions.swift */; };
+		CD148F7029035EB400C40CF9 /* TimeWarpVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4829035EB400C40CF9 /* TimeWarpVideoView.swift */; };
+		CD148F7129035EB400C40CF9 /* VideoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4929035EB400C40CF9 /* VideoDocument.swift */; };
+		CD148F7229035EB400C40CF9 /* TimeWarpVideoEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4A29035EB400C40CF9 /* TimeWarpVideoEditorView.swift */; };
+		CD148F7329035EB400C40CF9 /* ImportExportVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4B29035EB400C40CF9 /* ImportExportVideoView.swift */; };
+		CD148F7429035EB400C40CF9 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4C29035EB400C40CF9 /* VideoPlayerView.swift */; };
+		CD148F7529035EB400C40CF9 /* TimeWarpProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4D29035EB400C40CF9 /* TimeWarpProgressView.swift */; };
+		CD148F7629035EB400C40CF9 /* TimeWarpVideoObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4E29035EB400C40CF9 /* TimeWarpVideoObservable.swift */; };
+		CD148F7729035EB400C40CF9 /* FrameRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F4F29035EB400C40CF9 /* FrameRateView.swift */; };
+		CD148F7829035EB400C40CF9 /* TimeWarpVideoWarpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5029035EB400C40CF9 /* TimeWarpVideoWarpView.swift */; };
+		CD148F7929035EB400C40CF9 /* ValidRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5229035EB400C40CF9 /* ValidRangeView.swift */; };
+		CD148F7A29035EB400C40CF9 /* ComponentEditorPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5329035EB400C40CF9 /* ComponentEditorPreviewView.swift */; };
+		CD148F7B29035EB400C40CF9 /* ComponentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5429035EB400C40CF9 /* ComponentEditorView.swift */; };
+		CD148F7C29035EB400C40CF9 /* UnitFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5529035EB400C40CF9 /* UnitFunctions.swift */; };
+		CD148F7D29035EB400C40CF9 /* ComponentParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5629035EB400C40CF9 /* ComponentParametersView.swift */; };
+		CD148F7E29035EB400C40CF9 /* ComponentEditorObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5729035EB400C40CF9 /* ComponentEditorObservable.swift */; };
+		CD148F7F29035EB400C40CF9 /* ComponentsTableButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5829035EB400C40CF9 /* ComponentsTableButtonsView.swift */; };
+		CD148F8029035EB400C40CF9 /* TimeWarpingPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5929035EB400C40CF9 /* TimeWarpingPathView.swift */; };
+		CD148F8129035EB400C40CF9 /* ComponentsEditorObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5A29035EB400C40CF9 /* ComponentsEditorObservable.swift */; };
+		CD148F8229035EB400C40CF9 /* ComponentEditorPreviewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5B29035EB400C40CF9 /* ComponentEditorPreviewObservable.swift */; };
+		CD148F8329035EB400C40CF9 /* RangesWithOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5C29035EB400C40CF9 /* RangesWithOverlayView.swift */; };
+		CD148F8429035EB400C40CF9 /* ComponentRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5D29035EB400C40CF9 /* ComponentRangeView.swift */; };
+		CD148F8529035EB400C40CF9 /* ComponentsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5E29035EB400C40CF9 /* ComponentsTableView.swift */; };
+		CD148F8629035EB400C40CF9 /* RangedSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F5F29035EB400C40CF9 /* RangedSliderView.swift */; };
+		CD148F8729035EB400C40CF9 /* RangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6029035EB400C40CF9 /* RangeView.swift */; };
+		CD148F8829035EB400C40CF9 /* ComponentsTableViewRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6129035EB400C40CF9 /* ComponentsTableViewRowView.swift */; };
+		CD148F8929035EB400C40CF9 /* TimeWarpingPathViewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6229035EB400C40CF9 /* TimeWarpingPathViewObservable.swift */; };
+		CD148F8A29035EB400C40CF9 /* ComponentOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6329035EB400C40CF9 /* ComponentOptionsView.swift */; };
+		CD148F8B29035EB400C40CF9 /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6429035EB400C40CF9 /* PathView.swift */; };
+		CD148F8C29035EB400C40CF9 /* ComponentsEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6529035EB400C40CF9 /* ComponentsEditorView.swift */; };
+		CD148F8D29035EB400C40CF9 /* PlotAudioWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6729035EB400C40CF9 /* PlotAudioWaveformView.swift */; };
+		CD148F8E29035EB400C40CF9 /* PlotAudioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6829035EB400C40CF9 /* PlotAudioConstants.swift */; };
+		CD148F8F29035EB400C40CF9 /* PlotAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6929035EB400C40CF9 /* PlotAudio.swift */; };
+		CD148F9129035EB400C40CF9 /* PlotAudio_ClockSample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD148F6C29035EB400C40CF9 /* PlotAudio_ClockSample.m4a */; };
+		CD148F9229035EB400C40CF9 /* PlotAudio_PianoSample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD148F6D29035EB400C40CF9 /* PlotAudio_PianoSample.m4a */; };
+		CD148F9329035EB400C40CF9 /* PlotAudio_TubaSample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD148F6E29035EB400C40CF9 /* PlotAudio_TubaSample.m4a */; };
+		CD148F9429035EB400C40CF9 /* PlotAudioObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD148F6F29035EB400C40CF9 /* PlotAudioObservable.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CD148F172903599900C40CF9 /* TimeWarpEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeWarpEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD148F1E2903599B00C40CF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD148F202903599B00C40CF9 /* TimeWarpEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeWarpEditor.entitlements; sourceTree = "<group>"; };
+		CD148F222903599B00C40CF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CD148F2929035A5C00C40CF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CD148F2A29035D4000C40CF9 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		CD148F2B29035D4000C40CF9 /* TimeWarpEditorSuccessSoundName.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TimeWarpEditorSuccessSoundName.m4a; sourceTree = "<group>"; };
+		CD148F2C29035D4000C40CF9 /* TimeWarpEditorWarningSoundName.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = TimeWarpEditorWarningSoundName.m4a; sourceTree = "<group>"; };
+		CD148F3129035DBE00C40CF9 /* Twists.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Twists.mov; sourceTree = "<group>"; };
+		CD148F3229035DBE00C40CF9 /* Echo.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Echo.m4a; sourceTree = "<group>"; };
+		CD148F3329035DBE00C40CF9 /* Fireworks.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Fireworks.mov; sourceTree = "<group>"; };
+		CD148F3429035DBE00C40CF9 /* TimeWarpVideoGenerator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimeWarpVideoGenerator.png; sourceTree = "<group>"; };
+		CD148F3529035DBE00C40CF9 /* DefaultVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = DefaultVideo.mov; sourceTree = "<group>"; };
+		CD148F3B29035E5B00C40CF9 /* TimeWarpVideoGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpVideoGenerator.swift; sourceTree = "<group>"; };
+		CD148F3C29035E5B00C40CF9 /* TimeWarpConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpConstants.swift; sourceTree = "<group>"; };
+		CD148F3D29035E5B00C40CF9 /* TimeWarpVideoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpVideoApp.swift; sourceTree = "<group>"; };
+		CD148F3E29035E5B00C40CF9 /* TitleAndDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleAndDescriptionView.swift; sourceTree = "<group>"; };
+		CD148F3F29035E5B00C40CF9 /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
+		CD148F4029035E5B00C40CF9 /* TimeWarpExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpExtensions.swift; sourceTree = "<group>"; };
+		CD148F4829035EB400C40CF9 /* TimeWarpVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpVideoView.swift; sourceTree = "<group>"; };
+		CD148F4929035EB400C40CF9 /* VideoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDocument.swift; sourceTree = "<group>"; };
+		CD148F4A29035EB400C40CF9 /* TimeWarpVideoEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpVideoEditorView.swift; sourceTree = "<group>"; };
+		CD148F4B29035EB400C40CF9 /* ImportExportVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportExportVideoView.swift; sourceTree = "<group>"; };
+		CD148F4C29035EB400C40CF9 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		CD148F4D29035EB400C40CF9 /* TimeWarpProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpProgressView.swift; sourceTree = "<group>"; };
+		CD148F4E29035EB400C40CF9 /* TimeWarpVideoObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpVideoObservable.swift; sourceTree = "<group>"; };
+		CD148F4F29035EB400C40CF9 /* FrameRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameRateView.swift; sourceTree = "<group>"; };
+		CD148F5029035EB400C40CF9 /* TimeWarpVideoWarpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpVideoWarpView.swift; sourceTree = "<group>"; };
+		CD148F5229035EB400C40CF9 /* ValidRangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidRangeView.swift; sourceTree = "<group>"; };
+		CD148F5329035EB400C40CF9 /* ComponentEditorPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentEditorPreviewView.swift; sourceTree = "<group>"; };
+		CD148F5429035EB400C40CF9 /* ComponentEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentEditorView.swift; sourceTree = "<group>"; };
+		CD148F5529035EB400C40CF9 /* UnitFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitFunctions.swift; sourceTree = "<group>"; };
+		CD148F5629035EB400C40CF9 /* ComponentParametersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentParametersView.swift; sourceTree = "<group>"; };
+		CD148F5729035EB400C40CF9 /* ComponentEditorObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentEditorObservable.swift; sourceTree = "<group>"; };
+		CD148F5829035EB400C40CF9 /* ComponentsTableButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsTableButtonsView.swift; sourceTree = "<group>"; };
+		CD148F5929035EB400C40CF9 /* TimeWarpingPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpingPathView.swift; sourceTree = "<group>"; };
+		CD148F5A29035EB400C40CF9 /* ComponentsEditorObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsEditorObservable.swift; sourceTree = "<group>"; };
+		CD148F5B29035EB400C40CF9 /* ComponentEditorPreviewObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentEditorPreviewObservable.swift; sourceTree = "<group>"; };
+		CD148F5C29035EB400C40CF9 /* RangesWithOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangesWithOverlayView.swift; sourceTree = "<group>"; };
+		CD148F5D29035EB400C40CF9 /* ComponentRangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentRangeView.swift; sourceTree = "<group>"; };
+		CD148F5E29035EB400C40CF9 /* ComponentsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsTableView.swift; sourceTree = "<group>"; };
+		CD148F5F29035EB400C40CF9 /* RangedSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangedSliderView.swift; sourceTree = "<group>"; };
+		CD148F6029035EB400C40CF9 /* RangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeView.swift; sourceTree = "<group>"; };
+		CD148F6129035EB400C40CF9 /* ComponentsTableViewRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsTableViewRowView.swift; sourceTree = "<group>"; };
+		CD148F6229035EB400C40CF9 /* TimeWarpingPathViewObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWarpingPathViewObservable.swift; sourceTree = "<group>"; };
+		CD148F6329035EB400C40CF9 /* ComponentOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentOptionsView.swift; sourceTree = "<group>"; };
+		CD148F6429035EB400C40CF9 /* PathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
+		CD148F6529035EB400C40CF9 /* ComponentsEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsEditorView.swift; sourceTree = "<group>"; };
+		CD148F6729035EB400C40CF9 /* PlotAudioWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotAudioWaveformView.swift; sourceTree = "<group>"; };
+		CD148F6829035EB400C40CF9 /* PlotAudioConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotAudioConstants.swift; sourceTree = "<group>"; };
+		CD148F6929035EB400C40CF9 /* PlotAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotAudio.swift; sourceTree = "<group>"; };
+		CD148F6C29035EB400C40CF9 /* PlotAudio_ClockSample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlotAudio_ClockSample.m4a; sourceTree = "<group>"; };
+		CD148F6D29035EB400C40CF9 /* PlotAudio_PianoSample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlotAudio_PianoSample.m4a; sourceTree = "<group>"; };
+		CD148F6E29035EB400C40CF9 /* PlotAudio_TubaSample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlotAudio_TubaSample.m4a; sourceTree = "<group>"; };
+		CD148F6F29035EB400C40CF9 /* PlotAudioObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotAudioObservable.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD148F142903599900C40CF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD148F0E2903599900C40CF9 = {
+			isa = PBXGroup;
+			children = (
+				CD148F192903599900C40CF9 /* TimeWarpEditor */,
+				CD148F182903599900C40CF9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD148F182903599900C40CF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F172903599900C40CF9 /* TimeWarpEditor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD148F192903599900C40CF9 /* TimeWarpEditor */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F3D29035E5B00C40CF9 /* TimeWarpVideoApp.swift */,
+				CD148F3B29035E5B00C40CF9 /* TimeWarpVideoGenerator.swift */,
+				CD148F3F29035E5B00C40CF9 /* VideoWriter.swift */,
+				CD148F3C29035E5B00C40CF9 /* TimeWarpConstants.swift */,
+				CD148F4029035E5B00C40CF9 /* TimeWarpExtensions.swift */,
+				CD148F3E29035E5B00C40CF9 /* TitleAndDescriptionView.swift */,
+				CD148F4729035EB400C40CF9 /* TimeWarpVideo */,
+				CD148F5129035EB400C40CF9 /* ComponentsEditor */,
+				CD148F6629035EB400C40CF9 /* PlotAudio */,
+				CD148F3029035DBE00C40CF9 /* Resources */,
+				CD148F2929035A5C00C40CF9 /* Info.plist */,
+				CD148F1E2903599B00C40CF9 /* Assets.xcassets */,
+				CD148F202903599B00C40CF9 /* TimeWarpEditor.entitlements */,
+				CD148F2A29035D4000C40CF9 /* Credits.rtf */,
+				CD148F2B29035D4000C40CF9 /* TimeWarpEditorSuccessSoundName.m4a */,
+				CD148F2C29035D4000C40CF9 /* TimeWarpEditorWarningSoundName.m4a */,
+				CD148F212903599B00C40CF9 /* Preview Content */,
+			);
+			path = TimeWarpEditor;
+			sourceTree = "<group>";
+		};
+		CD148F212903599B00C40CF9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F222903599B00C40CF9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CD148F3029035DBE00C40CF9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F3129035DBE00C40CF9 /* Twists.mov */,
+				CD148F3229035DBE00C40CF9 /* Echo.m4a */,
+				CD148F3329035DBE00C40CF9 /* Fireworks.mov */,
+				CD148F3429035DBE00C40CF9 /* TimeWarpVideoGenerator.png */,
+				CD148F3529035DBE00C40CF9 /* DefaultVideo.mov */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD148F4729035EB400C40CF9 /* TimeWarpVideo */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F4E29035EB400C40CF9 /* TimeWarpVideoObservable.swift */,
+				CD148F4829035EB400C40CF9 /* TimeWarpVideoView.swift */,
+				CD148F5029035EB400C40CF9 /* TimeWarpVideoWarpView.swift */,
+				CD148F4A29035EB400C40CF9 /* TimeWarpVideoEditorView.swift */,
+				CD148F4929035EB400C40CF9 /* VideoDocument.swift */,
+				CD148F4F29035EB400C40CF9 /* FrameRateView.swift */,
+				CD148F4B29035EB400C40CF9 /* ImportExportVideoView.swift */,
+				CD148F4C29035EB400C40CF9 /* VideoPlayerView.swift */,
+				CD148F4D29035EB400C40CF9 /* TimeWarpProgressView.swift */,
+			);
+			path = TimeWarpVideo;
+			sourceTree = "<group>";
+		};
+		CD148F5129035EB400C40CF9 /* ComponentsEditor */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F5A29035EB400C40CF9 /* ComponentsEditorObservable.swift */,
+				CD148F6529035EB400C40CF9 /* ComponentsEditorView.swift */,
+				CD148F5729035EB400C40CF9 /* ComponentEditorObservable.swift */,
+				CD148F5429035EB400C40CF9 /* ComponentEditorView.swift */,
+				CD148F5B29035EB400C40CF9 /* ComponentEditorPreviewObservable.swift */,
+				CD148F5329035EB400C40CF9 /* ComponentEditorPreviewView.swift */,
+				CD148F5D29035EB400C40CF9 /* ComponentRangeView.swift */,
+				CD148F6329035EB400C40CF9 /* ComponentOptionsView.swift */,
+				CD148F5829035EB400C40CF9 /* ComponentsTableButtonsView.swift */,
+				CD148F5E29035EB400C40CF9 /* ComponentsTableView.swift */,
+				CD148F6129035EB400C40CF9 /* ComponentsTableViewRowView.swift */,
+				CD148F5F29035EB400C40CF9 /* RangedSliderView.swift */,
+				CD148F6029035EB400C40CF9 /* RangeView.swift */,
+				CD148F5C29035EB400C40CF9 /* RangesWithOverlayView.swift */,
+				CD148F6429035EB400C40CF9 /* PathView.swift */,
+				CD148F6229035EB400C40CF9 /* TimeWarpingPathViewObservable.swift */,
+				CD148F5929035EB400C40CF9 /* TimeWarpingPathView.swift */,
+				CD148F5229035EB400C40CF9 /* ValidRangeView.swift */,
+				CD148F5529035EB400C40CF9 /* UnitFunctions.swift */,
+				CD148F5629035EB400C40CF9 /* ComponentParametersView.swift */,
+			);
+			path = ComponentsEditor;
+			sourceTree = "<group>";
+		};
+		CD148F6629035EB400C40CF9 /* PlotAudio */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F6B29035EB400C40CF9 /* Audio Samples */,
+				CD148F6829035EB400C40CF9 /* PlotAudioConstants.swift */,
+				CD148F6729035EB400C40CF9 /* PlotAudioWaveformView.swift */,
+				CD148F6929035EB400C40CF9 /* PlotAudio.swift */,
+				CD148F6F29035EB400C40CF9 /* PlotAudioObservable.swift */,
+			);
+			path = PlotAudio;
+			sourceTree = "<group>";
+		};
+		CD148F6B29035EB400C40CF9 /* Audio Samples */ = {
+			isa = PBXGroup;
+			children = (
+				CD148F6C29035EB400C40CF9 /* PlotAudio_ClockSample.m4a */,
+				CD148F6D29035EB400C40CF9 /* PlotAudio_PianoSample.m4a */,
+				CD148F6E29035EB400C40CF9 /* PlotAudio_TubaSample.m4a */,
+			);
+			path = "Audio Samples";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD148F162903599900C40CF9 /* TimeWarpEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD148F262903599B00C40CF9 /* Build configuration list for PBXNativeTarget "TimeWarpEditor" */;
+			buildPhases = (
+				CD148F132903599900C40CF9 /* Sources */,
+				CD148F142903599900C40CF9 /* Frameworks */,
+				CD148F152903599900C40CF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeWarpEditor;
+			productName = TimeWarpEditor;
+			productReference = CD148F172903599900C40CF9 /* TimeWarpEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD148F0F2903599900C40CF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					CD148F162903599900C40CF9 = {
+						CreatedOnToolsVersion = 14.0.1;
+						LastSwiftMigration = 1400;
+					};
+				};
+			};
+			buildConfigurationList = CD148F122903599900C40CF9 /* Build configuration list for PBXProject "TimeWarpEditor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD148F0E2903599900C40CF9;
+			productRefGroup = CD148F182903599900C40CF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD148F162903599900C40CF9 /* TimeWarpEditor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD148F152903599900C40CF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD148F2F29035D4000C40CF9 /* TimeWarpEditorWarningSoundName.m4a in Resources */,
+				CD148F3829035DBE00C40CF9 /* Fireworks.mov in Resources */,
+				CD148F9329035EB400C40CF9 /* PlotAudio_TubaSample.m4a in Resources */,
+				CD148F9129035EB400C40CF9 /* PlotAudio_ClockSample.m4a in Resources */,
+				CD148F232903599B00C40CF9 /* Preview Assets.xcassets in Resources */,
+				CD148F3629035DBE00C40CF9 /* Twists.mov in Resources */,
+				CD148F3A29035DBE00C40CF9 /* DefaultVideo.mov in Resources */,
+				CD148F9229035EB400C40CF9 /* PlotAudio_PianoSample.m4a in Resources */,
+				CD148F2E29035D4000C40CF9 /* TimeWarpEditorSuccessSoundName.m4a in Resources */,
+				CD148F3729035DBE00C40CF9 /* Echo.m4a in Resources */,
+				CD148F3929035DBE00C40CF9 /* TimeWarpVideoGenerator.png in Resources */,
+				CD148F2D29035D4000C40CF9 /* Credits.rtf in Resources */,
+				CD148F1F2903599B00C40CF9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD148F132903599900C40CF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD148F7A29035EB400C40CF9 /* ComponentEditorPreviewView.swift in Sources */,
+				CD148F8529035EB400C40CF9 /* ComponentsTableView.swift in Sources */,
+				CD148F8929035EB400C40CF9 /* TimeWarpingPathViewObservable.swift in Sources */,
+				CD148F4629035E5B00C40CF9 /* TimeWarpExtensions.swift in Sources */,
+				CD148F4529035E5B00C40CF9 /* VideoWriter.swift in Sources */,
+				CD148F4429035E5B00C40CF9 /* TitleAndDescriptionView.swift in Sources */,
+				CD148F7629035EB400C40CF9 /* TimeWarpVideoObservable.swift in Sources */,
+				CD148F8829035EB400C40CF9 /* ComponentsTableViewRowView.swift in Sources */,
+				CD148F8429035EB400C40CF9 /* ComponentRangeView.swift in Sources */,
+				CD148F8D29035EB400C40CF9 /* PlotAudioWaveformView.swift in Sources */,
+				CD148F9429035EB400C40CF9 /* PlotAudioObservable.swift in Sources */,
+				CD148F7429035EB400C40CF9 /* VideoPlayerView.swift in Sources */,
+				CD148F7D29035EB400C40CF9 /* ComponentParametersView.swift in Sources */,
+				CD148F8029035EB400C40CF9 /* TimeWarpingPathView.swift in Sources */,
+				CD148F8A29035EB400C40CF9 /* ComponentOptionsView.swift in Sources */,
+				CD148F8B29035EB400C40CF9 /* PathView.swift in Sources */,
+				CD148F8729035EB400C40CF9 /* RangeView.swift in Sources */,
+				CD148F4329035E5B00C40CF9 /* TimeWarpVideoApp.swift in Sources */,
+				CD148F7B29035EB400C40CF9 /* ComponentEditorView.swift in Sources */,
+				CD148F8129035EB400C40CF9 /* ComponentsEditorObservable.swift in Sources */,
+				CD148F8C29035EB400C40CF9 /* ComponentsEditorView.swift in Sources */,
+				CD148F7129035EB400C40CF9 /* VideoDocument.swift in Sources */,
+				CD148F8E29035EB400C40CF9 /* PlotAudioConstants.swift in Sources */,
+				CD148F7E29035EB400C40CF9 /* ComponentEditorObservable.swift in Sources */,
+				CD148F8329035EB400C40CF9 /* RangesWithOverlayView.swift in Sources */,
+				CD148F8229035EB400C40CF9 /* ComponentEditorPreviewObservable.swift in Sources */,
+				CD148F7929035EB400C40CF9 /* ValidRangeView.swift in Sources */,
+				CD148F7F29035EB400C40CF9 /* ComponentsTableButtonsView.swift in Sources */,
+				CD148F4229035E5B00C40CF9 /* TimeWarpConstants.swift in Sources */,
+				CD148F7229035EB400C40CF9 /* TimeWarpVideoEditorView.swift in Sources */,
+				CD148F7329035EB400C40CF9 /* ImportExportVideoView.swift in Sources */,
+				CD148F7C29035EB400C40CF9 /* UnitFunctions.swift in Sources */,
+				CD148F8F29035EB400C40CF9 /* PlotAudio.swift in Sources */,
+				CD148F4129035E5B00C40CF9 /* TimeWarpVideoGenerator.swift in Sources */,
+				CD148F7529035EB400C40CF9 /* TimeWarpProgressView.swift in Sources */,
+				CD148F7729035EB400C40CF9 /* FrameRateView.swift in Sources */,
+				CD148F7829035EB400C40CF9 /* TimeWarpVideoWarpView.swift in Sources */,
+				CD148F8629035EB400C40CF9 /* RangedSliderView.swift in Sources */,
+				CD148F7029035EB400C40CF9 /* TimeWarpVideoView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CD148F242903599B00C40CF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CD148F252903599B00C40CF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		CD148F272903599B00C40CF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TimeWarpEditor/TimeWarpEditor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TimeWarpEditor/Preview Content\"";
+				DEVELOPMENT_TEAM = GZABHNF58X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeWarpEditor/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.limit-point.TimeWarpEditor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD148F282903599B00C40CF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TimeWarpEditor/TimeWarpEditor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TimeWarpEditor/Preview Content\"";
+				DEVELOPMENT_TEAM = GZABHNF58X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeWarpEditor/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.limit-point.TimeWarpEditor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD148F122903599900C40CF9 /* Build configuration list for PBXProject "TimeWarpEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD148F242903599B00C40CF9 /* Debug */,
+				CD148F252903599B00C40CF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD148F262903599B00C40CF9 /* Build configuration list for PBXNativeTarget "TimeWarpEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD148F272903599B00C40CF9 /* Debug */,
+				CD148F282903599B00C40CF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD148F0F2903599900C40CF9 /* Project object */;
+}
