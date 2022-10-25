@@ -299,6 +299,7 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
         let asset = AVAsset(url: url)
         self.plotAudioObservable.asset = asset
         let duration = asset.duration.seconds
+        self.videoDuration = duration
         self.currentPlayerDuration = duration
         periodicTimeObserver = self.player.addPeriodicTimeObserver(forInterval: CMTime(value: 1, timescale: 30), queue: nil) { [weak self] cmTime in
             
