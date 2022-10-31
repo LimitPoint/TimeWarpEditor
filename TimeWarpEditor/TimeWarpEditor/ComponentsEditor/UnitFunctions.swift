@@ -369,7 +369,7 @@ func power_flipped(_ t:Double, factor:Double, modifier:Double) -> Double {
 
 let quadrature = Quadrature(integrator: Quadrature.Integrator.nonAdaptive, absoluteTolerance: 1.0e-8, relativeTolerance: 1.0e-2)
 
-func integrate(_ t:Double, integrand:(Double)->Double) -> Double? {
+func quadrature_integrate(_ t:Double, integrand:(Double)->Double) -> Double? {
     
     var resultValue:Double?
     
@@ -387,7 +387,7 @@ func integrate(_ t:Double, integrand:(Double)->Double) -> Double? {
     return resultValue
 }
 
-func integrate(_ r:ClosedRange<Double>, integrand:(Double)->Double) -> Double? {
+func quadrature_integrate(_ r:ClosedRange<Double>, integrand:(Double)->Double) -> Double? {
     
     var resultValue:Double?
     
@@ -419,58 +419,58 @@ func integrate_double_smoothstep(_ t:Double, from:Double = 1, to:Double = 2, ran
     let r4 = 1.0-range.upperBound...1.0-range.lowerBound
     let r5 = 1.0-range.lowerBound...1.0
     
-    guard let value1 = integrate(r1, integrand: { t in
+    guard let value1 = quadrature_integrate(r1, integrand: { t in
         constant(from)
     }) else {
         return nil
     }
     
-    guard let value2 = integrate(r2, integrand: { t in
+    guard let value2 = quadrature_integrate(r2, integrand: { t in
         mapunit(from, to, smoothstep_on(r2, t))
     }) else {
         return nil
     }
     
-    guard let value3 = integrate(r3, integrand: { t in
+    guard let value3 = quadrature_integrate(r3, integrand: { t in
         constant(to)
     }) else {
         return nil
     }
     
-    guard let value4 = integrate(r4, integrand: { t in
+    guard let value4 = quadrature_integrate(r4, integrand: { t in
         mapunit(from, to, smoothstep_flip_on(r4, t))
     }) else {
         return nil
     }
     
     if r1.contains(t) {
-        value = integrate(r1.lowerBound...t, integrand: { t in
+        value = quadrature_integrate(r1.lowerBound...t, integrand: { t in
             constant(from)
         })
     }
     else if r2.contains(t) {
-        if let value2 = integrate(r2.lowerBound...t, integrand: { t in
+        if let value2 = quadrature_integrate(r2.lowerBound...t, integrand: { t in
             mapunit(from, to, smoothstep_on(r2, t))
         }) {
             value = value1 + value2
         }
     }
     else if r3.contains(t) {
-        if let value3 = integrate(r3.lowerBound...t, integrand: { t in
+        if let value3 = quadrature_integrate(r3.lowerBound...t, integrand: { t in
             constant(to)
         }) {
             value = value1 + value2 + value3
         }
     }
     else if r4.contains(t) {
-        if let value4 = integrate(r4.lowerBound...t, integrand: { t in
+        if let value4 = quadrature_integrate(r4.lowerBound...t, integrand: { t in
             mapunit(from, to, smoothstep_flip_on(r4, t))
         }) {
             value = value1 + value2 + value3 + value4
         }
     }
     else if r5.contains(t) {
-        if let value5 = integrate(r5.lowerBound...t, integrand: { t in
+        if let value5 = quadrature_integrate(r5.lowerBound...t, integrand: { t in
             constant(from)
         }) {
             value = value1 + value2 + value3 + value4 + value5
@@ -492,32 +492,32 @@ func integrate_smoothstep(_ t:Double, from:Double = 1, to:Double = 2, range:Clos
     let r2 = range
     let r3 = range.upperBound...1.0
     
-    guard let value1 = integrate(r1, integrand: { t in
+    guard let value1 = quadrature_integrate(r1, integrand: { t in
         constant(from)
     }) else {
         return nil
     }
     
-    guard let value2 = integrate(r2, integrand: { t in
+    guard let value2 = quadrature_integrate(r2, integrand: { t in
         mapunit(from, to, smoothstep_on(r2, t))
     }) else {
         return nil
     }
     
     if r1.contains(t) {
-        value = integrate(r1.lowerBound...t, integrand: { t in
+        value = quadrature_integrate(r1.lowerBound...t, integrand: { t in
             constant(from)
         })
     }
     else if r2.contains(t) {
-        if let value2 = integrate(r2.lowerBound...t, integrand: { t in
+        if let value2 = quadrature_integrate(r2.lowerBound...t, integrand: { t in
             mapunit(from, to, smoothstep_on(r2, t))
         }) {
             value = value1 + value2
         }
     }
     else if r3.contains(t) {
-        if let value3 = integrate(r3.lowerBound...t, integrand: { t in
+        if let value3 = quadrature_integrate(r3.lowerBound...t, integrand: { t in
             constant(to)
         }) {
             value = value1 + value2 + value3
@@ -539,32 +539,32 @@ func integrate_smoothstep_flipped(_ t:Double, from:Double = 2, to:Double = 1, ra
     let r2 = range
     let r3 = range.upperBound...1.0
     
-    guard let value1 = integrate(r1, integrand: { t in
+    guard let value1 = quadrature_integrate(r1, integrand: { t in
         constant(from)
     }) else {
         return nil
     }
     
-    guard let value2 = integrate(r2, integrand: { t in
+    guard let value2 = quadrature_integrate(r2, integrand: { t in
         mapunit(to, from, smoothstep_flip_on(r2, t))
     }) else {
         return nil
     }
     
     if r1.contains(t) {
-        value = integrate(r1.lowerBound...t, integrand: { t in
+        value = quadrature_integrate(r1.lowerBound...t, integrand: { t in
             constant(from)
         })
     }
     else if r2.contains(t) {
-        if let value2 = integrate(r2.lowerBound...t, integrand: { t in
+        if let value2 = quadrature_integrate(r2.lowerBound...t, integrand: { t in
             mapunit(to, from, smoothstep_flip_on(r2, t))
         }) {
             value = value1 + value2
         }
     }
     else if r3.contains(t) {
-        if let value3 = integrate(r3.lowerBound...t, integrand: { t in
+        if let value3 = quadrature_integrate(r3.lowerBound...t, integrand: { t in
             constant(to)
         }) {
             value = value1 + value2 + value3
@@ -589,45 +589,45 @@ func integrate_triangle(_ t:Double, from:Double = 1, to:Double = 2, range:Closed
     let r3 = center...range.upperBound
     let r4 = range.upperBound...1.0
     
-    guard let value1 = integrate(r1, integrand: { t in
+    guard let value1 = quadrature_integrate(r1, integrand: { t in
         constant(from)
     }) else {
         return nil
     }
     
-    guard let value2 = integrate(r2, integrand: { t in
+    guard let value2 = quadrature_integrate(r2, integrand: { t in
         line(range.lowerBound, from, center, to, x: t)
     }) else {
         return nil
     }
     
-    guard let value3 = integrate(r3, integrand: { t in
+    guard let value3 = quadrature_integrate(r3, integrand: { t in
         line(range.upperBound, from, center, to, x: t)
     }) else {
         return nil
     }
     
     if r1.contains(t) {
-        value = integrate(r1.lowerBound...t, integrand: { t in
+        value = quadrature_integrate(r1.lowerBound...t, integrand: { t in
             constant(from)
         })
     }
     else if r2.contains(t) {
-        if let value2 = integrate(r2.lowerBound...t, integrand: { t in
+        if let value2 = quadrature_integrate(r2.lowerBound...t, integrand: { t in
             line(range.lowerBound, from, center, to, x: t)
         }) {
             value = value1 + value2
         }
     }
     else if r3.contains(t) {
-        if let value3 = integrate(r3.lowerBound...t, integrand: { t in
+        if let value3 = quadrature_integrate(r3.lowerBound...t, integrand: { t in
             line(range.upperBound, from, center, to, x: t)
         }) {
             value = value1 + value2 + value3
         }
     }
     else if r4.contains(t) {
-        if let value4 = integrate(r4.lowerBound...t, integrand: { t in
+        if let value4 = quadrature_integrate(r4.lowerBound...t, integrand: { t in
             constant(from)
         }) {
             value = value1 + value2 + value3 + value4
@@ -1253,7 +1253,7 @@ func plot_constant(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_constant(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         constant(t, factor: factor)
     })
 }
@@ -1316,7 +1316,7 @@ func plot_cosine(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_cosine(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         cosine(t, factor: factor, modifier: modifier)
     })
 }
@@ -1327,7 +1327,7 @@ func plot_cosine_flipped(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_cosine_flipped(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         cosine_flipped(t, factor: factor, modifier: modifier)
     })
 }
@@ -1338,7 +1338,7 @@ func plot_sine(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_sine(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         sine(t, factor: factor, modifier: modifier)
     })
 }
@@ -1349,7 +1349,7 @@ func plot_sine_flipped(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_sine_flipped(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         sine_flipped(t, factor: factor, modifier: modifier)
     })
 }
@@ -1360,7 +1360,7 @@ func plot_tapered_cosine(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_tapered_cosine(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         tapered_cosine(t, factor: factor, modifier: modifier)
     })
 }
@@ -1371,7 +1371,7 @@ func plot_tapered_cosine_flipped(_ t:Double, factor:Double, modifier:Double) -> 
 }
 
 func integrate_tapered_cosine_flipped(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         tapered_cosine_flipped(t, factor: factor, modifier: modifier)
     })
 }
@@ -1382,7 +1382,7 @@ func plot_tapered_sine(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_tapered_sine(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         tapered_sine(t, factor: factor, modifier: modifier)
     })
 }
@@ -1393,7 +1393,7 @@ func plot_tapered_sine_flipped(_ t:Double, factor:Double, modifier:Double) -> Do
 }
 
 func integrate_tapered_sine_flipped(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         tapered_sine_flipped(t, factor: factor, modifier: modifier)
     })
 }
@@ -1404,7 +1404,7 @@ func plot_power(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_power(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         power(t, factor: factor, modifier: modifier)
     })
 }
@@ -1415,7 +1415,7 @@ func plot_power_flipped(_ t:Double, factor:Double, modifier:Double) -> Double {
 }
 
 func integrate_power_flipped(_ t:Double, factor:Double, modifier:Double) -> Double? {
-    return integrate(t, integrand: { t in 
+    return quadrature_integrate(t, integrand: { t in 
         power_flipped(t, factor: factor, modifier: modifier)
     })
 }
