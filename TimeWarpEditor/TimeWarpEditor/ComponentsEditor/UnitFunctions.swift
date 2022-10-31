@@ -1075,14 +1075,14 @@ func plot(_ t:Double, componentFunction:ComponentFunction) -> Double {
 
 func integrate(_ t:Double, componentFunction:ComponentFunction) -> Double? {
     
-    if let value = integrate(componentFunction:componentFunction)(unitmap(componentFunction.range.lowerBound, componentFunction.range.upperBound, t), componentFunction.factor, componentFunction.modifier) {
+    if let value = integrator(for:componentFunction)(unitmap(componentFunction.range.lowerBound, componentFunction.range.upperBound, t), componentFunction.factor, componentFunction.modifier) {
         return value * (componentFunction.range.upperBound - componentFunction.range.lowerBound)
     }
     
     return nil
 }
 
-func integrate(componentFunction:ComponentFunction) -> (Double,Double,Double)->Double? {
+func integrator(for componentFunction:ComponentFunction) -> (Double,Double,Double)->Double? {
     switch componentFunction.timeWarpFunctionType {
         case .doubleSmoothstep:
             return integrate_double_smoothstep(_:factor:modifier:)
