@@ -1119,13 +1119,6 @@ func integrator(for componentFunction:ComponentFunction) -> (Double,Double,Doubl
     }
 }
 
-func timeScale(componentFunction:ComponentFunction) -> Double {
-    guard let timeScale = integrate(componentFunction.range.upperBound, componentFunction: componentFunction) else {
-        return 0
-    }
-    return timeScale
-}
-
 func contains(_ t:Double, componentFunction:ComponentFunction) -> Bool {
     return componentFunction.range.contains(t)
 }
@@ -1161,12 +1154,17 @@ func integrateComponents(_ t:Double, components:[ComponentFunction]) -> Double? 
     
     for component in components {
         if contains(t, componentFunction: component) {
+                // integrate up to t in component range
             if let integral = integrate(t, componentFunction: component) {
                 value += integral
                 return value
             }
         }
-        value += timeScale(componentFunction: component)
+        
+            // integrate over whole component range
+        if let integral = integrate(component.range.upperBound, componentFunction: component) {
+            value += integral
+        }
     }
     
     return value
