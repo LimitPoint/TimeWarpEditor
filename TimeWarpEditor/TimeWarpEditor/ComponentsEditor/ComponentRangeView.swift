@@ -57,12 +57,18 @@ struct ComponentRangeView: View {
     
     @ObservedObject var componentEditorObservable: ComponentEditorObservable
     
+    @State private var isExpanded: Bool = true
+    
     var body: some View {
         VStack {
-            HStack {
-                VideoPlayerWithPlayButtonView(player: componentEditorObservable.leftPlayer)
-                VideoPlayerWithPlayButtonView(player: componentEditorObservable.rightPlayer)
+            
+            DisclosureGroup("Players", isExpanded: $isExpanded) {
+                HStack {
+                    VideoPlayerWithPlayButtonView(player: componentEditorObservable.leftPlayer)
+                    VideoPlayerWithPlayButtonView(player: componentEditorObservable.rightPlayer)
+                }
             }
+            .padding()
             
             VStack {
                 VStack {
