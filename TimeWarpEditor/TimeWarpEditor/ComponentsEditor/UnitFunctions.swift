@@ -941,15 +941,19 @@ func complimentOfRanges(_ ranges:[ClosedRange<Double>]) -> [ClosedRange<Double>]
 }
 
 func matchFitRangetoComplimentOfRanges(range:ClosedRange<Double>, ranges:[ClosedRange<Double>]) -> ClosedRange<Double>? {
+    
+    if ranges.count == 0 {
+        return 0.0...1.0
+    }
+    
     if let complimentOfRanges = complimentOfRanges(ranges) {
         for aRange in complimentOfRanges {
             if rangesOverlap(range,aRange) {
                 return aRange
             }
-            else {
-                return complimentOfRanges.first
-            }
         }
+        
+        return complimentOfRanges.first
     }
     
     return nil
