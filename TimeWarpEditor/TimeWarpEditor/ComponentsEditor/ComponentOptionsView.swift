@@ -1,6 +1,9 @@
 //
 //  ComponentOptionsView.swift
-//  ComponentsEditor
+//  TimeWarpEditor
+//
+//  Read discussion at:
+//  http://www.limit-point.com/blog/2022/time-warp-editor/
 //
 //  Created by Joseph Pagliaro on 3/15/22.
 //  Copyright © 2022 Limit Point LLC. All rights reserved.

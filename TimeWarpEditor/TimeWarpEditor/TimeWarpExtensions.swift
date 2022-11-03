@@ -2,6 +2,9 @@
 //  TimeWarpExtensions.swift
 //  TimeWarpEditor
 //
+//  Read discussion at:
+//  http://www.limit-point.com/blog/2022/time-warp-editor/
+//
 //  Created by Joseph Pagliaro on 8/25/22.
 //  Copyright © 2022 Limit Point LLC. All rights reserved.
 //
