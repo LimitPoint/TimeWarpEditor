@@ -62,7 +62,7 @@ class ComponentEditorPreviewObservable: ObservableObject {
         let videoRangeClipPlayerItem = AVPlayerItem(asset: avAsset)
         videoRangeClipPlayer = AVPlayer(playerItem: videoRangeClipPlayerItem)
         
-        progressFrameImage = avAsset.getCGImageAssetFrame(CMTime.zero, percent: 0)
+        self.loadProgressImage(videoAsset: avAsset, percent: 0)
         
         timeWarpingPathViewObservable.componentFunctions = [self.componentFunction]
         
@@ -77,6 +77,18 @@ class ComponentEditorPreviewObservable: ObservableObject {
     
     deinit {
         print("ComponentEditorPreviewObservable deinit")
+    }
+    
+    func loadProgressImage(videoAsset:AVAsset, percent:Float) {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            let frame = videoAsset.getCGImageAssetFrame(CMTime.zero, percent: percent)
+            DispatchQueue.main.async {
+                self.progressFrameImage = frame
+            }
+        }
     }
     
     func cancel() {

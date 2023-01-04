@@ -23,13 +23,13 @@ protocol RangedSliderViewDelegate: AnyObject {
 struct RangedSliderView: View {
 
     var frameCount:Int // videoFrameCount
-    @Binding var frameCountRange:ClosedRange<Double> // frameCountRange
+    @Binding var frameCountRange:ClosedRange<Double>
     var displayRangeForFrameCountRange:(ClosedRange<Double>, Double)->ClosedRange<Double> // rangeForFrameCountRange
     weak var rangedSliderViewDelegate:RangedSliderViewDelegate?
     
     var body: some View {
-        GeometryReader { geomentry in
-            sliderView(sliderSize: geomentry.size)
+        GeometryReader { geometry in
+            sliderView(sliderSize: geometry.size)
         }
     }
     

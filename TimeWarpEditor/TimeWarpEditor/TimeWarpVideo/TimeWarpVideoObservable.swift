@@ -34,7 +34,7 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
             let videoAsset = AVAsset(url: videoURL)
             self.videoDuration = videoAsset.duration.seconds
             self.plotAudioObservable.asset = videoAsset
-            self.progressFrameImage = videoAsset.getCGImageAssetFrame(CMTime.zero, percent: 0)
+            self.loadProgressImage(videoAsset:videoAsset, percent:0)
         }
     }
     var videoDuration:Double = 0
@@ -90,7 +90,7 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
         documentsURL = FileManager.documentsURL(filename: nil, inSubdirectory: nil)!
         print("path = \(documentsURL.path)")
         
-        progressFrameImage = videoAsset.getCGImageAssetFrame(CMTime.zero, percent: 0)
+        self.loadProgressImage(videoAsset:videoAsset, percent:0)
         
         timeWarpedVideoURL = urlForTimeWarpedVideoIfItExists()
         
@@ -139,6 +139,18 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
         }.store(in: &cancelBag)
 
         self.timeWarpingPathViewObservable.componentPathSelectionHandler = componentPathSelectionHandler(_:)
+    }
+    
+    func loadProgressImage(videoAsset:AVAsset, percent:Float) {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            let frame = videoAsset.getCGImageAssetFrame(CMTime.zero, percent: percent)
+            DispatchQueue.main.async {
+                self.progressFrameImage = frame
+            }
+        }
     }
     
     func componentPathSelectionHandler(_ selections:Set<UUID>) {
