@@ -195,7 +195,7 @@ class DownsampleAudio {
                         
                         if audioSamples.count > audioSampleSizeThreshold {
                             
-                            if let audioSamplesDownsamples = downsample(audioSamples, decimationFactor: decimationFactor)  {
+                            if let audioSamplesDownsamples = self?.downsample(audioSamples, decimationFactor: decimationFactor)  {
                                 downsamples.append(contentsOf: audioSamplesDownsamples)
                             }
                             
