@@ -700,16 +700,15 @@ func path(a:Double, b:Double, indicatorTime:Double, indicatorAtZero:Bool = true,
         let x = a + (Double(i) * ((b - a) / Double(N)))
         let y = values[i]
         
-        let value = y
-        if value < minimum_y {
-            minimum_y = value
+        if y < minimum_y {
+            minimum_y = y
         }
-        if value > maximum_y {
-            maximum_y = value
+        if y > maximum_y {
+            maximum_y = y
         }
         
         plot_x.append(x)
-        plot_y.append(value)
+        plot_y.append(y)
     }
     
     let frameRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
