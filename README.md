@@ -1,4 +1,4 @@
-![TimeWarp](http://www.limit-point.com/assets/images/TimeWarpEditor.jpg)
+![TimeWarp](https://www.limit-point.com/assets/images/TimeWarpEditor.jpg)
 # TimeWarpEditor
 
 Discover how TimeWarp can be adapted to variably time scale one or more portions of a video.
@@ -111,12 +111,12 @@ enum TimeWarpFunctionType: String, Codable, CaseIterable, Identifiable {
 }
 ```
 
-[TimeWarp]: http://www.limit-point.com/blog/2022/time-warp/
-[ScaleVideo]: http://www.limit-point.com/blog/2022/time-warp/#scale-video
-[ScaleVideoObservable]: http://www.limit-point.com/blog/2022/time-warp/#scale-video-observable
-[Scaling Video Files]: http://www.limit-point.com/blog/2022/scale-video/
-[mathematical justification]: http://www.limit-point.com/blog/2022/time-warp/#mathematical-justification
-[built-in time scale functions]: http://www.limit-point.com/blog/2022/time-warp/#built-in-time-scale-functions
+[TimeWarp]: https://www.limit-point.com/blog/2022/time-warp/
+[ScaleVideo]: https://www.limit-point.com/blog/2022/time-warp/#scale-video
+[ScaleVideoObservable]: https://www.limit-point.com/blog/2022/time-warp/#scale-video-observable
+[Scaling Video Files]: https://www.limit-point.com/blog/2022/scale-video/
+[mathematical justification]: https://www.limit-point.com/blog/2022/time-warp/#mathematical-justification
+[built-in time scale functions]: https://www.limit-point.com/blog/2022/time-warp/#built-in-time-scale-functions
 [Accelerate]: https://developer.apple.com/documentation/accelerate
 [Quadrature]: https://developer.apple.com/documentation/accelerate/quadrature-smu
 [infinitesimal]: https://en.wikipedia.org/wiki/Infinitesimal
@@ -132,5 +132,4 @@ enum TimeWarpFunctionType: String, Codable, CaseIterable, Identifiable {
 [piecewise]: https://en.wikipedia.org/wiki/Piecewise
 [ClosedRange]: https://developer.apple.com/documentation/swift/closedrange
 [piecewise function]: https://www.mathsisfun.com/sets/functions-piecewise.html
-[PlotAudio]: http://www.limit-point.com/blog/2022/plot-audio/
-
+[PlotAudio]: https://www.limit-point.com/blog/2022/plot-audio/
