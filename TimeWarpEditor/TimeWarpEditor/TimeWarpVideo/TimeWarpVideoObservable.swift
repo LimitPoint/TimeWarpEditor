@@ -69,7 +69,8 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
     
     var errorMesssage:String?
     
-    @Published var player:AVPlayer
+    @Published var playerItem:AVPlayerItem
+    var player:AVPlayer
     var currentPlayerDuration:Double?
     
     var audioPlayer: AVAudioPlayer? // hold on to it!
@@ -84,7 +85,7 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
         videoDuration = videoAsset.duration.seconds
         
         plotAudioObservable = PlotAudioObservable(asset: videoAsset)
-        
+        playerItem = AVPlayerItem(url: videoURL)
         player = AVPlayer(url: videoURL)
         
         documentsURL = FileManager.documentsURL(filename: nil, inSubdirectory: nil)!
@@ -100,7 +101,7 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
         
         //playOriginal()
                 
-        $player.sink { [weak self] _ in
+        $playerItem.sink { [weak self] _ in
             DispatchQueue.main.async {
                 self?.updateExpectedTimeWarpedDuration()
             }
@@ -309,7 +310,8 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
         }
         
         self.player.pause()
-        self.player = AVPlayer(url: url)
+        playerItem = AVPlayerItem(url: url)
+        self.player.replaceCurrentItem(with: playerItem)
         
         let asset = AVAsset(url: url)
         self.plotAudioObservable.asset = asset
