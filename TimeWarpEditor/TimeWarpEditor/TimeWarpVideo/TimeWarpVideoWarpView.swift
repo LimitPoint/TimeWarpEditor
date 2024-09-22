@@ -16,18 +16,20 @@ struct TimeWarpingPathDetailsView: View {
     @ObservedObject var timeWarpVideoObservable:TimeWarpVideoObservable
     
     var body: some View {
-        Text(kTimeWarpingPathViewCaption)
-            .font(.caption)
-            .padding(.horizontal)
-        
-        Text("Time Warp on [0,1] to [\(String(format: "%.2f", timeWarpVideoObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", timeWarpVideoObservable.timeWarpingPathViewObservable.maximum_y))]\nExpected Time Warped Duration: \(timeWarpVideoObservable.expectedTimeWarpedDuration)")
-            .font(.caption)
+        VStack {
+            Text(kTimeWarpingPathViewCaption)
+                .font(.caption)
+                .padding(.horizontal)
+            
+            Text("Time Warp range [0,1] and domain [\(String(format: "%.2f", timeWarpVideoObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", timeWarpVideoObservable.timeWarpingPathViewObservable.maximum_y))]\nExpected Time Warped Duration: \(timeWarpVideoObservable.expectedTimeWarpedDuration)\nVideo Duration: \(secondsToString(secondsIn: timeWarpVideoObservable.videoDuration))")
+                .font(.caption)
+                .padding()
+            
+            Toggle(isOn: $timeWarpVideoObservable.fitPathInView) {
+                Text("Fit Path In View")
+            }
             .padding()
-        
-        Toggle(isOn: $timeWarpVideoObservable.fitPathInView) {
-            Text("Fit Path In View")
         }
-        .padding()
     }
 }
 
@@ -118,6 +120,11 @@ struct TimeWarpVideoWarpView: View {
                 VideoPlayerView(timeWarpVideoObservable: timeWarpVideoObservable)
                 
                 EditTimeWarpButtonsView(timeWarpVideoObservable: timeWarpVideoObservable, componentsEditorObservable: componentsEditorObservable)
+                
+                Toggle(isOn: $timeWarpVideoObservable.includeAudio) {
+                    Text("Include Audio")
+                }
+                .padding()
                 
                 PlotAudioWaveformView(plotAudioObservable: timeWarpVideoObservable.plotAudioObservable)
                 

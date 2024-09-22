@@ -117,6 +117,7 @@ struct ComponentEditorComponentTypeView: View {
     
     @State private var isComponentTypeExpanded: Bool = true
     @State private var isDetailsExpanded: Bool = true
+    @State private var isOptionsExpanded: Bool = true
     
     var body: some View {
         
@@ -129,7 +130,7 @@ struct ComponentEditorComponentTypeView: View {
                 DisclosureGroup("Details", isExpanded: $isDetailsExpanded) {
                     ComponentParametersView(componentFunction: componentEditorObservable.component, vertical: false)
                     
-                    Text("Time Warp on [0,1] to [\(String(format: "%.2f", componentEditorObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", componentEditorObservable.timeWarpingPathViewObservable.maximum_y))]")
+                    Text("Time Warp range [0,1] and domain [\(String(format: "%.2f", componentEditorObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", componentEditorObservable.timeWarpingPathViewObservable.maximum_y))]")
                         .font(.caption)
                         .padding()
                     
@@ -139,8 +140,11 @@ struct ComponentEditorComponentTypeView: View {
                     .padding()
                 }
                 
-                ComponentOptionsView(componentEditorObservable: componentEditorObservable)
-                    .frame(minHeight: 300)
+                DisclosureGroup("Options", isExpanded: $isOptionsExpanded) {
+                    ComponentOptionsView(componentEditorObservable: componentEditorObservable)
+                        .frame(minHeight: 300)
+                }
+               
             }
         }
     }

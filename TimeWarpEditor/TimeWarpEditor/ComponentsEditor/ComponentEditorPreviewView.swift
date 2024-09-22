@@ -17,16 +17,18 @@ struct PathDetailsView: View {
     @ObservedObject var componentEditorPreviewObservable: ComponentEditorPreviewObservable
     
     var body: some View {
-        Text(kTimeWarpingPathViewCaption)
-            .font(.caption)
-            .padding(.horizontal)
-        
-        Text("Time Warp on [0,1] to [\(String(format: "%.2f", componentEditorPreviewObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", componentEditorPreviewObservable.timeWarpingPathViewObservable.maximum_y))]\nExpected Time Warped Duration: \(componentEditorPreviewObservable.expectedTimeWarpedDuration)")
-            .font(.caption)
-            .padding()
-        
-        Toggle(isOn: $componentEditorPreviewObservable.fitPathInView) {
-            Text("Fit Path In View")
+        VStack {
+            Text(kTimeWarpingPathViewCaption)
+                .font(.caption)
+                .padding(.horizontal)
+            
+            Text("Time Warp range [0,1] and domain [\(String(format: "%.2f", componentEditorPreviewObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", componentEditorPreviewObservable.timeWarpingPathViewObservable.maximum_y))]\nExpected Time Warped Duration: \(componentEditorPreviewObservable.expectedTimeWarpedDuration)")
+                .font(.caption)
+                .padding()
+            
+            Toggle(isOn: $componentEditorPreviewObservable.fitPathInView) {
+                Text("Fit Path In View")
+            }
         }
         .padding()
     }
@@ -60,12 +62,12 @@ struct ComponentEditorPreviewView: View {
                     .padding()
                     .frame(width: 300)
                 
-                Button("Cancel", action: { 
+                Button("Cancel", action: {
                     componentEditorPreviewObservable.cancel()
                 }).padding()
             }
             else {
-                Button("Done", action: { 
+                Button("Done", action: {
                     componentEditorPreviewObservable.cancel()
                 }).padding()
                 
@@ -127,6 +129,8 @@ struct ComponentEditorPreviewView: View {
 
 struct ComponentEditorPreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentEditorPreviewView(componentEditorPreviewObservable: ComponentEditorPreviewObservable(componentEditorObservable: ComponentEditorObservable(componentsEditorObservable: ComponentsEditorObservable(videoURL: kDefaultVideoURL, componentFunctions: [ComponentFunction()]))))
+        ScrollView {
+            ComponentEditorPreviewView(componentEditorPreviewObservable: ComponentEditorPreviewObservable(componentEditorObservable: ComponentEditorObservable(componentsEditorObservable: ComponentsEditorObservable(videoURL: kDefaultVideoURL, componentFunctions: [ComponentFunction()]))))
+        }
     }
 }

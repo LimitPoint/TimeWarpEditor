@@ -65,7 +65,7 @@ struct ComponentsEditorPlotView: View {
                 TimeWarpingPathView(timeWarpingPathViewObservable: componentsEditorObservable.timeWarpingPathViewObservable)
                     .padding()
                 
-                Text("Time Warp on [0,1] to [\(String(format: "%.2f", componentsEditorObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", componentsEditorObservable.timeWarpingPathViewObservable.maximum_y))]")
+                Text("Time Warp range [0,1] and domain [\(String(format: "%.2f", componentsEditorObservable.timeWarpingPathViewObservable.minimum_y)), \(String(format: "%.2f", componentsEditorObservable.timeWarpingPathViewObservable.maximum_y))]")
                     .font(.caption)
                     .padding()
                 
