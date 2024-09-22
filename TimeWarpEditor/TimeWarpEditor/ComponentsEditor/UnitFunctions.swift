@@ -21,6 +21,7 @@ enum TimeWarpFunctionType: String, Codable, CaseIterable, Identifiable {
     case smoothstep = "Smooth Step"
     case smoothstepFlipped = "Smooth Step Flipped"
     case triangle = "Triangle"
+    case ramp = "Ramp"
     case cosine = "Cosine"
     case cosineFlipped = "Cosine Flipped"
     case sine = "Sine"
@@ -90,6 +91,10 @@ func TimeWarpingFunction(timeWarpFunctionType: TimeWarpFunctionType, factor: Dou
             let c = 1/2.0
             let w = c * modifier
             timeWarpingFunction = {t in triangle(t, from: 1, to: factor, range: c-w...c+w) }
+        case .ramp:
+            let c = 1/2.0
+            let w = c * modifier
+            timeWarpingFunction = {t in ramp(t, from: 1, to: factor, range: c-w...c+w) }
         case .cosine:
             timeWarpingFunction = {t in cosine(t, factor: factor, modifier: modifier) }
         case .cosineFlipped:
@@ -319,6 +324,31 @@ func triangle(_ t:Double, from:Double = 1, to:Double = 2, range:ClosedRange<Doub
     }
     else if r4.contains(t) {
         value = constant(from)
+    }
+    
+    return value
+}
+
+func ramp(_ t:Double, from:Double = 1, to:Double = 2, range:ClosedRange<Double> = 0.2...0.8) -> Double {
+    
+    guard from > 0, to > 0, range.lowerBound >= 0, range.upperBound <= 1 else {
+        return 0
+    }
+    
+    var value:Double = 0
+    
+    let r1 = 0...range.lowerBound
+    let r2 = range.lowerBound...range.upperBound
+    let r3 = range.upperBound...1.0
+    
+    if r1.contains(t) {
+        value = constant(from)
+    }
+    else if r2.contains(t) {
+        value = line(range.lowerBound, from, range.upperBound, to, x: t)
+    }
+    else if r3.contains(t) {
+        value = constant(to)
     }
     
     return value
@@ -634,6 +664,54 @@ func integrate_triangle(_ t:Double, from:Double = 1, to:Double = 2, range:Closed
             constant(from)
         }) {
             value = value1 + value2 + value3 + value4
+        }
+    }
+    
+    return value
+}
+
+func integrate_ramp(_ t:Double, from:Double = 1, to:Double = 2, range:ClosedRange<Double> = 0.2...0.8) -> Double? {
+    
+    guard from > 0, to > 0, range.lowerBound >= 0, range.upperBound <= 1 else {
+        return 0
+    }
+    
+    var value:Double?
+    
+    
+    let r1 = 0...range.lowerBound
+    let r2 = range.lowerBound...range.upperBound
+    let r3 = range.upperBound...1.0
+    
+    guard let value1 = quadrature_integrate(r1, integrand: { t in
+        constant(from)
+    }) else {
+        return nil
+    }
+    
+    guard let value2 = quadrature_integrate(r2, integrand: { t in
+        line(range.lowerBound, from, range.upperBound, to, x: t)
+    }) else {
+        return nil
+    }
+    
+    if r1.contains(t) {
+        value = quadrature_integrate(r1.lowerBound...t, integrand: { t in
+            constant(from)
+        })
+    }
+    else if r2.contains(t) {
+        if let value2 = quadrature_integrate(r2.lowerBound...t, integrand: { t in
+            line(range.lowerBound, from, range.upperBound, to, x: t)
+        }) {
+            value = value1 + value2
+        }
+    }
+    else if r3.contains(t) {
+        if let value3 = quadrature_integrate(r3.lowerBound...t, integrand: { t in
+            constant(to)
+        }) {
+            value = value1 + value2 + value3
         }
     }
     
@@ -1047,6 +1125,8 @@ func plot(componentFunction:ComponentFunction) -> (Double,Double,Double)->Double
             return plot_smoothstep_flipped(_:factor:modifier:)
         case .triangle:
             return plot_triangle(_:factor:modifier:)
+        case .ramp:
+            return plot_ramp(_:factor:modifier:)
         case .cosine:
             return plot_cosine(_:factor:modifier:)
         case .cosineFlipped:
@@ -1098,6 +1178,8 @@ func integrator(for componentFunction:ComponentFunction) -> (Double,Double,Doubl
             return integrate_smoothstep_flipped(_:factor:modifier:)
         case .triangle:
             return integrate_triangle(_:factor:modifier:)
+        case .ramp:
+            return integrate_ramp(_:factor:modifier:)
         case .cosine:
             return integrate_cosine(_:factor:modifier:)
         case .cosineFlipped:
@@ -1314,6 +1396,19 @@ func integrate_triangle(_ t:Double, factor:Double, modifier:Double) -> Double? {
     let c = 1/2.0
     let w = c * modifier
     return integrate_triangle(t, from: 1, to: factor, range: c-w...c+w)
+}
+
+// MARK: Plot & Integrate Ramp
+func plot_ramp(_ t:Double, factor:Double, modifier:Double) -> Double {
+    let c = 1/2.0
+    let w = c * modifier
+    return ramp(t, from: 1, to: factor, range: c-w...c+w)
+}
+
+func integrate_ramp(_ t:Double, factor:Double, modifier:Double) -> Double? {
+    let c = 1/2.0
+    let w = c * modifier
+    return integrate_ramp(t, from: 1, to: factor, range: c-w...c+w)
 }
 
 // MARK: Plot & Integrate Cosine
