@@ -113,19 +113,19 @@ struct ComponentOptionsView: View {
         TabView {
             OptionsPickerView(componentEditorObservable: componentEditorObservable)
                 .tabItem {
-                    Image(systemName: "function")
+                    Image(systemName: "point.topleft.down.to.point.bottomright.curvepath.fill")
                     Text("Warp Type")
                 }
             
             FactorView(componentEditorObservable: componentEditorObservable)
                 .tabItem {
-                    Image(systemName: "f.circle.fill")
+                    Image(systemName: "arrow.up.and.down")
                     Text("Factor")
                 }
             
             ModiferView(componentEditorObservable: componentEditorObservable)
                 .tabItem {
-                    Image(systemName: "m.circle.fill")
+                    Image(systemName: "arrow.left.and.right")
                     Text("Modifer")
                 }
         }
