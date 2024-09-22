@@ -209,12 +209,22 @@ class VideoWriter {
     
         // VideoWriter is passthough
     func videoReaderSettings() -> [String : Any]? {
-        return nil
+        return [kCVPixelBufferPixelFormatTypeKey as String: NSNumber(value: kCVPixelFormatType_32BGRA as UInt32)]
     }
     
         // VideoWriter is passthough
     func videoWriterSettings() -> [String : Any]? {
-        return nil
+        var settings:[String : Any] = [AVVideoCodecKey : AVVideoCodecType.h264, AVVideoWidthKey : movieSize.width, AVVideoHeightKey : movieSize.height]
+        
+        settings[AVVideoColorPropertiesKey]
+        = [AVVideoColorPrimariesKey:
+            AVVideoColorPrimaries_ITU_R_709_2,
+         AVVideoTransferFunctionKey:
+            AVVideoTransferFunction_ITU_R_709_2,
+              AVVideoYCbCrMatrixKey:
+            AVVideoYCbCrMatrix_ITU_R_709_2]
+        
+        return settings
     }
     
         // VideoWriter is passthough
