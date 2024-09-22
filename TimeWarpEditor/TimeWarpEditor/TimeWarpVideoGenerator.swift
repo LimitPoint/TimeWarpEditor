@@ -171,6 +171,8 @@ class TimeWarpVideoGenerator : VideoWriter {
     var progressFactor:CGFloat = 1.0/3.0 // 3 contributors - only 1 if no audio
     var cumulativeProgress:CGFloat = 0
     
+    var includeAudio: Bool
+    
     var ciOrientationTransform:CGAffineTransform = CGAffineTransform.identity
     
     var timeWarpingLUT:[CGPoint] = []
@@ -193,7 +195,7 @@ class TimeWarpVideoGenerator : VideoWriter {
     }
 
         // MARK: Init and Start    
-    init?(asset: AVAsset, frameRate: Int32, destination: String, integrator:@escaping (Double) -> Double, progress: @escaping (CGFloat, CIImage?) -> Void, completion: @escaping (URL?, String?) -> Void) {
+    init?(asset: AVAsset, frameRate: Int32, includeAudio: Bool, destination: String, integrator:@escaping (Double) -> Double, progress: @escaping (CGFloat, CIImage?) -> Void, completion: @escaping (URL?, String?) -> Void) {
         
         self.integrator = integrator
         
@@ -201,6 +203,8 @@ class TimeWarpVideoGenerator : VideoWriter {
             let scale:Int32 = 600
             self.frameDuration = CMTime(value: 1, timescale: CMTimeScale(frameRate)).convertScale(scale, method: CMTimeRoundingMethod.default)
         }
+        
+        self.includeAudio = includeAudio 
         
         super.init(asset: asset, destination: destination, progress: progress, completion: completion)
         
@@ -224,12 +228,12 @@ class TimeWarpVideoGenerator : VideoWriter {
         }
     }
     
-    convenience init?(path: String, frameRate: Int32, destination: String, integrator:@escaping (Double) -> Double, progress: @escaping (CGFloat, CIImage?) -> Void, completion: @escaping (URL?, String?) -> Void) {
+    convenience init?(path: String, frameRate: Int32, includeAudio: Bool, destination: String, integrator:@escaping (Double) -> Double, progress: @escaping (CGFloat, CIImage?) -> Void, completion: @escaping (URL?, String?) -> Void) {
         
         let videoURL = URL(fileURLWithPath: path)
         let videoAsset = AVURLAsset(url: videoURL)
         
-        self.init(asset: videoAsset, frameRate: frameRate, destination: destination, integrator: integrator, progress: progress, completion: completion)
+        self.init(asset: videoAsset, frameRate: frameRate, includeAudio: includeAudio, destination: destination, integrator: integrator, progress: progress, completion: completion)
     }
     
     deinit {
@@ -243,30 +247,6 @@ class TimeWarpVideoGenerator : VideoWriter {
     func isHDR() -> Bool {
         let hdrTracks = videoAsset.tracks(withMediaCharacteristic: .containsHDRVideo) 
         return hdrTracks.count > 0
-    }
-    
-    override func videoReaderSettings() -> [String : Any]? {
-        
-        var settings:[String : Any]?
-        
-        settings = [kCVPixelBufferPixelFormatTypeKey as String: NSNumber(value: kCVPixelFormatType_32BGRA as UInt32)]
-        
-        if isHDR() {
-            settings?[AVVideoColorPropertiesKey]
-            = [AVVideoColorPrimariesKey:
-                AVVideoColorPrimaries_ITU_R_709_2,
-             AVVideoTransferFunctionKey:
-                AVVideoTransferFunction_ITU_R_709_2,
-                  AVVideoYCbCrMatrixKey:
-                AVVideoYCbCrMatrix_ITU_R_709_2]
-        }
-        
-        return settings
-    }
-    
-        // Write compressed
-    override func videoWriterSettings() -> [String : Any]? {
-        return [AVVideoCodecKey : AVVideoCodecType.h264, AVVideoWidthKey : movieSize.width, AVVideoHeightKey : movieSize.height]
     }
     
         // Read LinearPCM for audio samples 
@@ -595,6 +575,11 @@ class TimeWarpVideoGenerator : VideoWriter {
     
         // MARK: Override writeAudioOnQueue
     override func writeAudioOnQueue(_ serialQueue:DispatchQueue) {
+        
+        if includeAudio == false {
+            self.finishAudioWriting()
+            return
+        }
         
         guard let controlBlocks = ControlBlocks(timeWarpVideoGenerator: self) else {
             self.finishAudioWriting()

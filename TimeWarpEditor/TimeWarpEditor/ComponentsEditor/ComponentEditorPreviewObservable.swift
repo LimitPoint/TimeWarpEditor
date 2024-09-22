@@ -176,7 +176,7 @@ class ComponentEditorPreviewObservable: ObservableObject {
                 return
             }
             
-            self?.timeWarpVideoGenerator = TimeWarpVideoGenerator(asset: videoRangeClip, frameRate: 30, destination: destinationPath, integrator: integrator, progress: { (value, ciimage) in
+            self?.timeWarpVideoGenerator = TimeWarpVideoGenerator(asset: videoRangeClip, frameRate: 30, includeAudio: true, destination: destinationPath, integrator: integrator, progress: { (value, ciimage) in
                 
                 DispatchQueue.main.async {
                     self?.progress = value

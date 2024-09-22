@@ -74,6 +74,8 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
     var currentPlayerDuration:Double?
     
     var audioPlayer: AVAudioPlayer? // hold on to it!
+    
+    @Published var includeAudio = true
 
     var plotAudioObservable:PlotAudioObservable
     
@@ -316,7 +318,6 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
         let asset = AVAsset(url: url)
         self.plotAudioObservable.asset = asset
         let duration = asset.duration.seconds
-        self.videoDuration = duration
         self.currentPlayerDuration = duration
         periodicTimeObserver = self.player.addPeriodicTimeObserver(forInterval: CMTime(value: 1, timescale: 30), queue: nil) { [weak self] cmTime in
             
@@ -411,14 +412,14 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
             var updateProgressImage = true
             var totalElapsed:TimeInterval = 0
             
-            guard let path = self?.videoURL.path, let fps = self?.fps.rawValue, let destinationPath = self?.timeWarpedVideoPath(), let integrator = self?.integrator else {
+            guard let path = self?.videoURL.path, let fps = self?.fps.rawValue, let includeAudio = self?.includeAudio, let destinationPath = self?.timeWarpedVideoPath(), let integrator = self?.integrator else {
                 DispatchQueue.main.async {
                     self?.alertInfo = AlertInfo(id: .timeWarpingFailed, title: "Time Warping Failef", message: "Process could not initialize.")
                 }
                 return
             }
             
-            self?.timeWarpVideoGenerator = TimeWarpVideoGenerator(path: path, frameRate: Int32(fps), destination: destinationPath, integrator: integrator, progress: { (value, ciimage) in
+            self?.timeWarpVideoGenerator = TimeWarpVideoGenerator(path: path, frameRate: Int32(fps), includeAudio: includeAudio, destination: destinationPath, integrator: integrator, progress: { (value, ciimage) in
                 
                 DispatchQueue.main.async {
                     self?.progress = value
