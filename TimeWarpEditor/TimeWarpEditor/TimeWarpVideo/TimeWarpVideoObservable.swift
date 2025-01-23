@@ -401,6 +401,8 @@ class TimeWarpVideoObservable: ObservableObject, PlotAudioDelegate {
     
     func warp() {
         
+        progressFrameImage = nil
+        
         self.player.pause()
         
         isTimeWarping = true
